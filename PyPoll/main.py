@@ -71,7 +71,7 @@ print(
 )
 for x in candidate_results:
 
-    x = f'{(x[0])}: xx% ({(x[1])})'
+    x = f'{x[0]}: {"{0:.3%}".format(x[1]/total_votes)} ({x[1]})'
     print(x)
 print(
     f'\n---------------------\n'
