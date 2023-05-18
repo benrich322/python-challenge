@@ -23,9 +23,11 @@ with open(csvpath) as csvfile:
 
     # CSV reader specifies delimiter and variable that holds contents
     csvreader = csv.reader(csvfile, delimiter=',')
+
+    csv_header = next(csvreader)
    
 
-    csvreader = sorted(csvreader, key=operator.itemgetter(2), reverse=True) 
+    csvreader = sorted(csvreader, key=operator.itemgetter(2)) 
 
     # Read the header row first
     #csv_header = next(csvreader)
@@ -44,25 +46,40 @@ with open(csvpath) as csvfile:
             candidate_vote_count = 0
         else:
            previous = change
+    
+    list_test = [previous,candidate_vote_count + 1]
+    candidates.append(list_test)
+            
 
 # creates a new list that only shows the candidates
 candidate_results = candidates[1:]
 
+
+
 # finds the greatest inc and dec in profits (date and amount) 
 max_output = max(candidate_results, key=lambda x: x[1])
 
+
+
 # prints the results
-print_statement = (
-    f'Election Results\n'
-    f'---------------------\n'
-    f'Total Votes: {total_votes}\n'
-    f'---------------------\n'
-    f'---------------------\n'
-    f'Winner: {max_output[0]}\n'
-    f'---------------------\n'
+print(
+
+    f'\nElection Results\n'
+    f'\n---------------------\n'
+    f'\nTotal Votes: {total_votes}\n'
+    f'\n---------------------\n'
+)
+for x in candidate_results:
+
+    x = f'{(x[0])}: xx% ({(x[1])})'
+    print(x)
+print(
+    f'\n---------------------\n'
+    f'\nWinner: {max_output[0]}\n'
+    f'\n---------------------\n'
 )
 
-print(print_statement)
+
 
 # exports a test file of the results
 #with open(PyPoll_text_file, "w") as text_file:
