@@ -59,31 +59,33 @@ candidate_results = candidates[1:]
 # finds the greatest inc and dec in profits (date and amount) 
 max_output = max(candidate_results, key=lambda x: x[1])
 
+result_list = []
+
+for x in candidate_results:
+
+    x = f'{x[0]}: {"{0:.3%}".format(x[1]/total_votes)} ({x[1]})'
+    result_list.append(x)
 
 
-# prints the results
-print(
+print_statement = (
 
     f'\nElection Results\n'
     f'\n---------------------\n'
     f'\nTotal Votes: {total_votes}\n'
     f'\n---------------------\n'
-)
-for x in candidate_results:
-
-    x = f'{x[0]}: {"{0:.3%}".format(x[1]/total_votes)} ({x[1]})'
-    print(x)
-print(
+    f'\n{result_list[0]}\n'
+    f'{result_list[1]}\n'
+    f'{result_list[2]}\n'
     f'\n---------------------\n'
     f'\nWinner: {max_output[0]}\n'
     f'\n---------------------\n'
 )
 
+print(print_statement)
 
-
-# exports a test file of the results
-#with open(PyPoll_text_file, "w") as text_file:
-#    text_file.write(print_statement)
+#exports a test file of the results
+with open(PyPoll_text_file, "w") as text_file:
+    text_file.write(print_statement)
 
 
 
