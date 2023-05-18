@@ -6,6 +6,7 @@ from datetime import datetime
 
 
 csvpath = os.path.join('Resources','budget_data.csv')
+PyBank_text_file = "PyBank_text_file.txt"
 
 total_months = 0
 net_profit = 0
@@ -59,6 +60,9 @@ print_statement = (
 )
 
 print(print_statement)
+
+with open(PyBank_text_file, "w") as text_file:
+    text_file.write(print_statement)
 
 
 
