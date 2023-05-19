@@ -6,10 +6,10 @@ import operator
 
 
 # identify the path of the csv file
-csvpath = os.path.join('Resources','election_data.csv')
+csvpath = os.path.join('PyPoll','Resources','election_data.csv')
  
 # create the text file
-PyPoll_text_file = "PyPoll_text_file.txt"
+output_path = os.path.join('PyPoll','analysis','PyPoll_text_file.txt')
 
 # create variables for loop 
 total_votes = 0
@@ -88,7 +88,7 @@ print_statement = (
 print(print_statement)
 
 #exports a test file of the results
-with open(PyPoll_text_file, "w") as text_file:
+with open(output_path, "w") as text_file:
     text_file.write(print_statement)
 
 

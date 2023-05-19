@@ -6,9 +6,10 @@ from datetime import datetime
 
 
 # identify the path of the csv file
-csvpath = os.path.join('Resources','budget_data.csv')
-# create the text file
-PyBank_text_file = "PyBank_text_file.txt"
+csvpath = os.path.join('PyBank','Resources','budget_data.csv')
+
+output_path = os.path.join('PyBank','analysis','PyBank_text_file.txt')
+
 
 # create variables for loop 
 total_months = 0
@@ -77,7 +78,7 @@ print_statement = (
 print(print_statement)
 
 # exports a test file of the results
-with open(PyBank_text_file, "w") as text_file:
+with open(output_path, "w") as text_file:
     text_file.write(print_statement)
 
 
